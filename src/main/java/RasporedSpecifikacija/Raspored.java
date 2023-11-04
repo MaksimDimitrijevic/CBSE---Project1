@@ -1,8 +1,14 @@
 package RasporedSpecifikacija;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
 public abstract class Raspored {
 
     public List<Termin> termini;
@@ -13,31 +19,17 @@ public abstract class Raspored {
         this.prostorije = new ArrayList<>();
     }
 
+    public abstract  boolean loadData(String path, String configPath) throws IOException;
+
+    public abstract  boolean exportData(String path) throws IOException;
+
     public abstract void dodaj_Termin(Termin t);
     public abstract void dodaj_Prostoriju(Prostorija p);
     public abstract void obrisi_Termin(Termin t);
     public abstract Termin premesti_Termin(Termin t);
     public abstract boolean zauzet_Termin(Termin t);
     public abstract boolean zauzeta_Prostorija(Prostorija p);
-    public abstract List<Termin> filtriraj_termin(Object o,boolean slobodni);
+    public abstract List<Termin> filtriraj_termin(String vrednost);
 
-    public List<Termin> getTermini() {
-        if(termini == null)
-            termini = new ArrayList<>();
-        return termini;
-    }
-
-    public List<Prostorija> getProstorije() {
-        if(prostorije == null)
-            prostorije = new ArrayList<>();
-        return prostorije;
-    }
-
-    public void setTermini(List<Termin> termini) {
-        this.termini = termini;
-    }
-
-    public void setProstorije(List<Prostorija> prostorije) {
-        this.prostorije = prostorije;
-    }
+    public abstract List<Termin> filtriraj_prostorija(String vrednost);
 }

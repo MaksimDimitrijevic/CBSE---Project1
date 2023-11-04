@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -42,4 +43,27 @@ public class Termin {
         this.dan = dan;
         this.prostorija = prostorija;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Termin termin = (Termin) o;
+        return Objects.equals(pocetak_termina, termin.pocetak_termina) && Objects.equals(kraj_termina, termin.kraj_termina) && Objects.equals(dan, termin.dan) && Objects.equals(prostorija, termin.prostorija);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pocetak_termina, kraj_termina, dan, prostorija);
+    }
+
+    public String toString() {
+        return "Appointment{" +
+                "start=" + pocetak_termina +
+                ", end=" + kraj_termina +
+                ", place='" + prostorija + '\'' +
+                ", day=" +  dan+
+                '}';
+    }
+
 }
