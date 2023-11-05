@@ -15,6 +15,9 @@ public class Prostorija {
 
     private Map<String, String> dodatne_informacije;
 
+    public Prostorija() {
+    }
+
     public Prostorija(int kapacitet, String oznaka_prostorije) {
         this.kapacitet = kapacitet;
         this.oznaka_prostorije = oznaka_prostorije;

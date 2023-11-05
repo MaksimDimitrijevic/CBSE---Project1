@@ -17,6 +17,9 @@ public class Termin {
     private String dan;
     private Prostorija prostorija;
 
+    public Termin() {
+    }
+
     public Termin(LocalDateTime pocetak_termina, LocalDateTime kraj_termina, String dan, Prostorija prostorija) {
         this.pocetak_termina = pocetak_termina;
         this.kraj_termina = kraj_termina;
