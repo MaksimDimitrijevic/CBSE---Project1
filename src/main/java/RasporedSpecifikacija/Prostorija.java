@@ -3,6 +3,7 @@ package RasporedSpecifikacija;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Getter
@@ -13,7 +14,7 @@ public class Prostorija {
     private int kapacitet;
     private String oznaka_prostorije;
 
-    private Map<String, String> dodatne_informacije;
+    private Map<String, String> dodatne_informacije = new HashMap<>();
 
     public Prostorija() {
     }
@@ -23,6 +24,8 @@ public class Prostorija {
         this.oznaka_prostorije = oznaka_prostorije;
     }
 
-
-
+    @Override
+    public String toString() {
+        return oznaka_prostorije;
+    }
 }
