@@ -40,6 +40,7 @@ public class NedeljniNivo extends Raspored {
 
                 switch (mappings.get(columnIndex)) {
                     case "prostorija":
+                        termin.setProstorija(new Prostorija());
                         termin.getProstorija().setOznaka_prostorije(record.get(columnIndex));
                         break;
                     case "pocetak_termina":
