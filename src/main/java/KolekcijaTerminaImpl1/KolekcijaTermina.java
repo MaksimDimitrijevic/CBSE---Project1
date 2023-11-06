@@ -31,6 +31,7 @@ public class KolekcijaTermina extends Raspored {
 
         for (CSVRecord record : parser) {
             Termin termin = new Termin();
+           // Prostorija prostorija = new Prostorija();
 
             for (ConfigMapping entry : columnMappings) {
                 int columnIndex = entry.getIndex();
@@ -38,9 +39,10 @@ public class KolekcijaTermina extends Raspored {
                 if(columnIndex == -1) continue;
 
                 String columnName = entry.getCustom();
-
+                System.out.println(columnName);
                 switch (mappings.get(columnIndex)) {
                     case "prostorija":
+                        termin.setProstorija(new Prostorija());
                         termin.getProstorija().setOznaka_prostorije(record.get(columnIndex));
                         break;
                     case "pocetak_termina":
@@ -91,7 +93,7 @@ public class KolekcijaTermina extends Raspored {
                 csvPrinter.printRecord(
                         appointment.getPocetak_termina(),
                         appointment.getKraj_termina(),
-                        appointment.getProstorija()
+                        appointment.getProstorija().getOznaka_prostorije()
                 );
             }
 
